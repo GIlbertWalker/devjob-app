@@ -1,18 +1,22 @@
+
+import './App.css'
+import Header from './components/Header';
+import JobList from './components/joblist';
+import JobDetails from './components/JobDetails';
+
+import {Routes, Route, Navigate} from "react-router-dom";
+
+
 function App() {
   return (
     <div className="App">
-      <h1
-        style={{
-          height: "80vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "40px",
-          color: "brown",
-        }}
-      >
-        Hurray!!! Happy building
-      </h1>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Navigate to = '/jobs'/>}/>
+        <Route path="/jobs"  element={<JobList/>} />
+        <Route path="/jobs/:position"  element={<JobDetails/>} />
+        
+      </Routes>
     </div>
   );
 }
