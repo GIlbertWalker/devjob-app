@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Header = () => {
-  return (
-    <header className='header'>
-        <div className='container'>
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-            <h1 className='devOps'>devjobs</h1>
-            
-            <div className="switch">
-               <h1>switch header</h1>
-            </div>
-            
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    if (isDarkMode) {
+      document.body.classList.remove('dark-mode');
+    } else {
+      document.body.classList.add('dark-mode');
+    }
+  };
+
+  return (
+    <header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
+      <div className='container'>
+        <div className="header__container">
+          <h1>devjobs</h1>
+          <div className="switch">
+            <label className="switch__label" htmlFor="darkModeToggle">
+              Dark Mode
+            </label>
+            <input
+              type="checkbox"
+              id="darkModeToggle"
+              className="switch__toggle"
+              checked={isDarkMode}
+              onChange={toggleDarkMode}
+            />
+          </div>
         </div>
+      </div>
     </header>
-  )
-}
+  );
+};
 
 export default Header;
-
-
-
