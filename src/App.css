@@ -63,7 +63,12 @@ p {
 }
 
 .header__container {
+  width: 100%;
   display: flex;
+  padding: 20px;
+  margin-top: 30px;
+  justify-content: space-between;
+
 }
 
 .container {
@@ -90,15 +95,61 @@ p {
   border-radius: 6px;
 }
 
-.dark-mode {
-  background-color: #333;
+/* DarkMode Styles */
+body.dark-mode {
+  background-color: #19202D;
+}
+
+.dark-mode .header {
+  background-color: #121721;
   color: #fff;
 }
 
-.dark-mode .switch {
-  background-color: #555;
+.dark-mode .job__item {
+  background-color: #3a4c6e5f;
+}
+
+.dark-mode .darkModeh1 {
   color: #fff;
 }
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+}
+
+.switch__label {
+  margin-right: 0.5rem;
+}
+
+.switch__slider {
+  width: 38px;
+  height: 20px;
+  appearance: none;
+  background-color: #ddd;
+  border-radius: 15px;
+  padding: 2px;
+  outline: none;
+  transition: background-color 0.4s ease;
+}
+
+.switch__slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #888;
+  cursor: pointer;
+}
+
+.switch__slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #888;
+  cursor: pointer;
+}
+
 
 
 /* Job List Wrapper styles */

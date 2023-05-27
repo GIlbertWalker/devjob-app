@@ -16,16 +16,19 @@ const Header = () => {
     <header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className='container'>
         <div className="header__container">
+
           <h1>devjobs</h1>
+
           <div className="switch">
-            <label className="switch__label" htmlFor="darkModeToggle">
-              Dark Mode
-            </label>
+            
             <input
-              type="checkbox"
+              type="range"
               id="darkModeToggle"
-              className="switch__toggle"
-              checked={isDarkMode}
+              className="switch__slider"
+              min="0"
+              max="1"
+              step="1"
+              value={isDarkMode ? "1" : "0"}
               onChange={toggleDarkMode}
             />
           </div>
@@ -36,3 +39,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

@@ -115,7 +115,7 @@ const JobLists = () => {
                       {item.postedAt} . {item.contract}
                     </h6>
                     <h1>
-                      <Link to={`/jobs/${item.position}`}>{item.position}</Link>
+                      <Link className="darkModeh1" to={`/jobs/${item.position}`}>{item.position}</Link>
                     </h1>
                     <p>{item.company}</p>
 
