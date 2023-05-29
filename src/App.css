@@ -481,10 +481,7 @@ p {
 }
 
 /* Custom list style */
-ul {
-  list-style: none;
-  padding-left: 0;
-}
+
 
 @media screen and (max-width: 768px) {
   .header {
@@ -504,7 +501,7 @@ ul {
   .search__panel {
     height: auto;
     padding: 15px;
-    margin-top: -35px;
+    margin-top: -45px;
   }
 
   .v-line {
