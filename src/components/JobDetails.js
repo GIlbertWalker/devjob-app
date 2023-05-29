@@ -27,10 +27,9 @@ const JobDetails = () => {
           <button>
             <Link className="lin__K" to={job.website}>Company Site</Link>
           </button>
-
         </div>
 
-        <div className="job__list__wrapper">
+        
           <div className="details__wrapper">
             <div className="job__details">
               <div className="about__job">
@@ -72,7 +71,7 @@ const JobDetails = () => {
           </div>
         </div>
 
-      </div>
+  
 
       <div className="bottom__wrapper">
         <div>
