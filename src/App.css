@@ -501,7 +501,7 @@ p {
   .search__panel {
     height: auto;
     padding: 15px;
-    margin-top: -45px;
+    margin-top: -35px;
   }
 
   .v-line {
@@ -543,8 +543,8 @@ p {
   }
 
   .job__item img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-top: -60px;
     margin-bottom: 10px;
   }
