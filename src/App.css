@@ -480,6 +480,24 @@ p {
   font-weight: 500;
 }
 
+.bottom__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  margin-top:  50px;
+  padding: 20px 350px;
+}
+
+.left__content {
+  flex: 1;
+}
+
+.right__content {
+  margin-left: 20px;
+}
+
+
 /* Custom list style */
 
 

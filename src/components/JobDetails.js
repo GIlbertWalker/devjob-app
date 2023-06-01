@@ -71,16 +71,21 @@ const JobDetails = () => {
           </div>
         </div>
 
-  
-
-      <div className="bottom__wrapper">
-        <div>
+        <div className="bottom__wrapper">
+        
+        <div className="left__content">
           <h1>{job.position}</h1>
           <span>{job.location}</span>
         </div>
-
-        <button className="btn">Apply</button>
+      
+        <div className="right__content">
+          <button className="btn">Apply</button>
+        </div>
+        
       </div>
+      
+  
+
       
     </section>
   );
