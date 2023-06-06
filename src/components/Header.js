@@ -15,12 +15,12 @@ const Header = () => {
   return (
     <header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className='container'>
-        <div className="header__container">
 
+        <div className="header__container">
+        
           <h1>devjobs</h1>
 
           <div className="switch">
-            
             <input
               type="range"
               id="darkModeToggle"
@@ -32,7 +32,9 @@ const Header = () => {
               onChange={toggleDarkMode}
             />
           </div>
+
         </div>
+
       </div>
     </header>
   );
