@@ -58,7 +58,7 @@ p {
   border-radius: 0px 0px 0px 100px;
 }
 
-.header h1 {
+.header__container h1 {
   color: #fff;
 }
 
@@ -115,7 +115,10 @@ p {
 
 .switch {
   display: inline-flex;
+  width: 9%;
+  max-width: 100%;
   align-items: center;
+  justify-content: space-between;
 }
 
 .switch__label {
@@ -123,10 +126,10 @@ p {
 }
 
 .switch__slider {
-  width: 38px;
+  width: 39px;
   height: 20px;
   appearance: none;
-  background-color: #ddd;
+  background: #FFFFFF;
   border-radius: 15px;
   padding: 2px;
   outline: none;
@@ -135,10 +138,10 @@ p {
 
 .switch__slider::-webkit-slider-thumb {
   appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background-color: #888;
+  background: #5964E0;
   cursor: pointer;
 }
 
@@ -146,7 +149,7 @@ p {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: #888;
+  
   cursor: pointer;
 } 
 

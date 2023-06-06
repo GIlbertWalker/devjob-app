@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const switchRef = useRef(null);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -12,15 +13,25 @@ const Header = () => {
     }
   };
 
+  const handleSwitchClick = () => {
+    toggleDarkMode();
+  };
+
   return (
     <header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className='container'>
-
         <div className="header__container">
-        
           <h1>devjobs</h1>
-
-          <div className="switch">
+          <div
+            className="switch"
+            ref={switchRef}
+            onClick={handleSwitchClick}
+          >
+            <img
+              src="assets/desktop/icon-sun.svg"
+              alt="Sun Logo"
+              className={`switch__logo ${isDarkMode ? 'hidden' : ''}`}
+            />
             <input
               type="range"
               id="darkModeToggle"
@@ -29,17 +40,18 @@ const Header = () => {
               max="1"
               step="1"
               value={isDarkMode ? "1" : "0"}
-              onChange={toggleDarkMode}
+              onChange={() => {}}
+            />
+            <img
+              src="/assets/desktop/icon-moon.svg"
+              alt="Moon Logo"
+              className={`switch__logo ${isDarkMode ? '' : 'hidden'}`}
             />
           </div>
-
         </div>
-
       </div>
     </header>
   );
 };
 
 export default Header;
-
-
