@@ -28,7 +28,7 @@ const Header = () => {
             onClick={handleSwitchClick}
           >
             <img
-              src="assets/desktop/icon-sun.svg"
+              src="/assets/desktop/icon-sun.svg"
               alt="Sun Logo"
               className={`switch__logo ${isDarkMode ? 'hidden' : ''}`}
             />
