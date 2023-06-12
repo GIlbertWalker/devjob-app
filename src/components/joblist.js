@@ -1,27 +1,28 @@
-
-
-
 import React, { useState } from "react";
 import jobs from "./data.json";
 import { Link } from "react-router-dom";
+
 
 const JobLists = () => {
   const [jobData, setJobData] = useState(jobs);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchByLocation, setSearchByLocation] = useState("");
-
+  const [filterValue, setFilterValue] = useState("");
+  const [showOverlay, setShowOverlay] = useState(false); // New state variable for overlay
 
   const searchTermValue = searchTerm.toLowerCase();
 
   const locationSearchHandler = () => {
-    const filteredData = jobs.filter((job) =>
-      job.location.toLowerCase().includes(searchByLocation.toLowerCase())
+    const filteredData = jobs.filter(
+      (job) =>
+        job.location.toLowerCase().includes(searchByLocation.toLowerCase())
     );
     setJobData(filteredData);
   };
 
   const filterJobData = (e) => {
     const selectedFilter = e.target.value;
+    setFilterValue(selectedFilter);
 
     if (selectedFilter === "full-time") {
       const filteredData = jobs.filter((job) => job.contract === "Full Time");
@@ -40,6 +41,10 @@ const JobLists = () => {
     }
   };
 
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  };
+
   return (
     <section className="job__list">
       <div className="container">
@@ -48,58 +53,104 @@ const JobLists = () => {
             <span>
               <i className="ri-search-line"></i>
             </span>
+
             <input
               type="text"
               placeholder="Filter by title, companies, expertise…"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+
+            <img
+              className="filter"
+              src="assets/mobile/icon-filter.svg"
+              alt="filter"
+              onClick={toggleOverlay} // Open the overlay when filter button is clicked
+            />
+
+            <button className="btn btnNo" onClick={locationSearchHandler}>
+              <i className="ri-search-line"></i>
+            </button>
           </div>
 
           <div className="v-line"></div>
 
-          <div className="showBox">
-            <div className="search__panel-02">
-              <span>
+          <div className="search__panel-02">
+            <span>
               <i className="ri-map-pin-line"></i>
-              </span>
-              
-              <input
-                type="text"
-                placeholder="Filter by location"
-                value={searchByLocation}
-                onChange={(e) => setSearchByLocation(e.target.value)}
-              />
-            </div>
+            </span>
 
-            <div className="v-line"></div>
-            
-            <div className="search__panel-03">
-            
-              <select onChange={filterJobData}>
-                <option>Filter job by</option>
-                <option value="full-time">Full Time</option>
-                <option value="part-time">Part Time</option>
-                <option value="freelance">Freelance</option>
-                <option value="contract">Contract</option>
-              </select>
-              
-
-              <button className="btn " onClick={locationSearchHandler}>
-                Search
-              </button>
-            </div>
-
-            <button className="btn " onClick={locationSearchHandler}>
-              Search
-          </button>
-
+            <input
+              type="text"
+              placeholder="Filter by location"
+              value={searchByLocation}
+              onChange={(e) => setSearchByLocation(e.target.value)}
+            />
           </div>
-         
-          
+
+          <div className="v-line"></div>
+
+          <div className="search__panel-03">
+            <div className="checkbox">
+              <input
+                type="checkbox"
+                id="full-time"
+                name="job-filter"
+                value="full-time"
+                checked={filterValue === "full-time"}
+                onChange={filterJobData}
+              />
+              <label htmlFor="full-time">Full Time</label>
+            </div>
+
+            <button className="btn" onClick={locationSearchHandler}>
+              Search
+            </button>
+          </div>
         </div>
 
-        
+        {showOverlay && (
+          <div className={`overlay ${showOverlay ? "active" : ""}`}>
+            <div className="search__panel-overlay">
+              {
+                /* Add the search panel content for the overlay here */
+                <div className="search__panel">
+                    
+                  <div className="search__panel-02">
+                  <span>
+                    <i className="ri-map-pin-line"></i>
+                  </span>
+      
+                  <input
+                    type="text"
+                    placeholder="Filter by location"
+                    value={searchByLocation}
+                    onChange={(e) => setSearchByLocation(e.target.value)}
+                  />
+                </div>             
+      
+                <div className="search__panel-03">
+                  <div className="checkbox">
+                    <input
+                      type="checkbox"
+                      id="full-time"
+                      name="job-filter"
+                      value="full-time"
+                      checked={filterValue === "full-time"}
+                      onChange={filterJobData}
+                    />
+                    <label htmlFor="full-time">Full Time</label>
+                  </div>
+      
+                  <button className="btn" onClick={locationSearchHandler}>
+                    Search
+                  </button>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        )}
 
         <div className="job__list__wrapper">
           <div className="jobs__wrapper">

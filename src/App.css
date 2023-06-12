@@ -9,12 +9,18 @@
 body {
   font-family: 'Kumbh Sans';
   background: #F2F2F2;
+  width: 100%;
 }
 
 h1, h2 {
   font-size: 1.3rem;
   font-weight: 500;
   color: #000;
+}
+
+.filter{
+  display: none;
+  
 }
 
 .btn {
@@ -39,6 +45,10 @@ h1, h2 {
 
 .btn:hover {
   background: #939BF4;
+}
+
+.btnNo{
+  display: none;
 }
 
 p {
@@ -102,22 +112,56 @@ p {
   border-radius: 6px;
 }
 
-/* DarkMode Styles */
+/*_______ DarkMode Styles her_____ */
  body.dark-mode {
-  background-color: #19202D;
+  background-color:  #121721;
 }
 
-.dark-mode .header {
-  background-color: #121721;
+.dark-mode .search__panel, .dark-mode input{
+  background: #19202D;
   color: #fff;
 }
 
 .dark-mode .job__item {
-  background-color: #3a4c6e5f;
+  background-color: #19202D;
 }
 
 .dark-mode .darkModeh1 {
   color: #fff;
+}
+
+.dark-mode .details__wrapper{
+  background: #19202D;
+  color:#9DAEC2;
+}
+
+.dark-mode .job__details h1 {
+  color: #FFFFFF;
+}
+
+.dark-mode .details__top{
+  background: #19202D;
+}
+
+.dark-mode .details__top h1, .lin__K{
+  color: #FFFFFF;
+}
+
+.dark-mode .bottom__wrapper{
+  background: #19202D;
+}
+
+.dark-mode .bottom__wrapper h1{
+  color: #FFFFFF;
+}
+
+.dark-mode .bottom__wrapper span{
+  color:#9DAEC2;
+}
+
+.dark-mode ul li,
+.dark-mode ol li {
+  color: #717579;
 }
 
 .switch {
@@ -156,13 +200,12 @@ p {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  
   cursor: pointer;
 } 
 
 
 
-/* Job List Wrapper styles */
+/* _______ Job List Wrapper styles ____________ */
 .job__list__wrapper {
   display: flex;
   flex-direction: column;
@@ -172,7 +215,7 @@ p {
   align-items: center;
 }
 
-/* Search Panel */
+/* __________________Search Panel__________________ */
 .search__panel {
   display: flex;
   align-items: center;
@@ -180,7 +223,6 @@ p {
   padding: 5px 30px;
   flex-wrap: wrap;
   background: #FFFFFF;
-  /* height: 80px; */
   margin-top: -50px;
   border-radius: 6px;
   width: 95%;
@@ -218,13 +260,16 @@ p {
   flex-grow: 1;
 }
 
-.search__panel-03 select {
+.search__panel-03 .checkbox ,label {
   padding: 15px 25px;
   border: none;
   outline: none;
   cursor: pointer;
 }
 
+.search__panel-overlay{
+  display: none;
+}
 .search__panel-01 input,
 .search__panel-02 input {
   border: none;
@@ -432,7 +477,7 @@ p {
   justify-content: space-between;
   background: #FFFFFF;
   margin-top:  50px;
-  padding: 20px 350px;
+  padding: 20px 300px;
 }
 
 .left__content {
@@ -481,6 +526,10 @@ ol li::before {
 
 /* Styles for mobile devices */
 @media screen and (max-width: 768px) {
+
+  body{
+    width:100%
+  }
   .header {
     height: 130px;
   }
@@ -501,13 +550,11 @@ ol li::before {
 
   }
 
-  .search__box-2{
-    display: flex;
-    border: 2px solid red;
-    width: 100%;
-    justify-content: space-between;
+  .container__2{
+    border: 2px solid blue;
   }
 
+  
   .search__panel {
     display: flex;
     height: auto;
@@ -516,13 +563,22 @@ ol li::before {
     width: 87%;
   }
 
+  .btnNo{
+    display: inline;
+  }
+
   .v-line {
     display: none;
   }
 
   .search__panel-01 {
-    width: 50%;
+    width: 100%;
     max-width: 100%;
+  }
+
+  
+  .search__panel-01 span{
+    display: none;    
   }
 
   .search__panel-02 {
@@ -531,6 +587,10 @@ ol li::before {
 
   .search__panel-03 {
     display: none;
+  }
+  .filter{
+    display: inline;
+    
   }
 
   .jobs__wrapper {
@@ -581,5 +641,79 @@ ol li::before {
 
   .link__styles {
     margin-left: 20px;
+  }
+
+
+  .bottom__wrapper{
+    border: 2px solid red;
+    width: 100%;
+  }
+
+  .bottom__wrapper .left__content{
+    display: none;
+  }
+
+  .bottom__wrapper .right__content{
+    border: 2px solid;
+  }
+
+  .bottom__wrapper button{
+    width: 60%;
+  }
+
+
+  /* hhhhhhhhhhhhh */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .overlay .search__panel-02, .overlay .search__panel-03{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay .search__panel-02 {
+    color: #19202D;
+  }
+  .overlay .search__panel-03{
+    flex-direction: column;
+    border-top:2px solid #6E8098;
+  }
+
+  .search__panel-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .search__panel-overlay .btn{
+    width: 90%;
+  }
+  
+  .search__panel-overlay .checkbox{
+    font-size: 16px;
+    font-weight: 700;
   }
 }
