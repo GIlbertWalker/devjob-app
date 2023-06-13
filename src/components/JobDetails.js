@@ -24,9 +24,12 @@ const JobDetails = () => {
             <Link className="lin__K" to={job.website}>{job.company}.com</Link>
           </div>
 
-          <button>
-            <Link className="lin__K" to={job.website}>Company Site</Link>
-          </button>
+          <div>
+            <button>
+              <Link className="lin__K" to={job.website}>Company Site</Link>
+            </button>   
+          </div>
+          
         </div>
 
         

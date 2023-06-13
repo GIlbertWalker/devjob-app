@@ -473,11 +473,12 @@ p {
 
 .bottom__wrapper {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   background: #FFFFFF;
   margin-top:  50px;
-  padding: 20px 300px;
+  padding: 20px;
 }
 
 .left__content {
@@ -549,11 +550,6 @@ ol li::before {
     width: 100%;
 
   }
-
-  .container__2{
-    border: 2px solid blue;
-  }
-
   
   .search__panel {
     display: flex;
@@ -627,42 +623,60 @@ ol li::before {
   .container__2{
     padding: 0;
     width: 85%;
+    height: inherit;
   }
 
   .details__top {
     width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: -35px;
+    padding: 30px;
   }
 
   .details__top img {
     width: 100px;
+    margin-top: -75px;
+    height: auto;
     padding: 30px;
+    object-fit: contain;
+  }
+  
+  .about__job{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about__job .btn{
+    margin-top: 20px;
+    width: 90%;
   }
 
   .link__styles {
     margin-left: 20px;
   }
 
+    .bottom__wrapper{
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 20px 0;
+    }
 
-  .bottom__wrapper{
-    border: 2px solid red;
-    width: 100%;
-  }
+    .bottom__wrapper .btn{
+      width: 100%;
+    }
 
   .bottom__wrapper .left__content{
     display: none;
   }
 
-  .bottom__wrapper .right__content{
-    border: 2px solid;
-  }
-
-  .bottom__wrapper button{
-    width: 60%;
-  }
 
 
-  /* hhhhhhhhhhhhh */
+  /* ****Overlay****** */
   .overlay {
     position: fixed;
     top: 0;
@@ -685,21 +699,21 @@ ol li::before {
     visibility: visible;
   }
   
-  .overlay .search__panel-02, .overlay .search__panel-03{
+  .overlay .search__panel-02{
+    display: flex;
+    color: #19202D;
+    width: 100%;
+    padding-left: 5px;
+    
+  }
+
+  .overlay .search__panel-03{
     display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    
+    padding-left: 0px;
   }
-
-  .overlay .search__panel-02 {
-    color: #19202D;
-  }
-  .overlay .search__panel-03{
-    flex-direction: column;
-    border-top:2px solid #6E8098;
-  }
-
+  
   .search__panel-overlay {
     display: flex;
     justify-content: center;
@@ -709,7 +723,7 @@ ol li::before {
   }
 
   .search__panel-overlay .btn{
-    width: 90%;
+    width: 98%;
   }
   
   .search__panel-overlay .checkbox{
